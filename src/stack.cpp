@@ -1,9 +1,9 @@
 //============================================================================
-// Name        : HelloWorld.cpp
-// Author      : 
-// Version     :
-// Copyright   : Your copyright notice
-// Description : Hello World in C++, Ansi-style
+// Name        : stack.cpp
+// Author      : haitruong-tech
+// Version     : 0.0.1
+// Copyright   : MIT
+// Description : basic stack using static array
 //============================================================================
 
 #include <iostream>
@@ -79,7 +79,7 @@ public:
 	}
 };
 
-int main() {
+int mainStack() {
 	Stack s1;
 	int option, position, value;
 
