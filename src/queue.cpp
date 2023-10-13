@@ -3,7 +3,7 @@
 // Author      : haitruong-tech
 // Version     : 0.0.1
 // Copyright   : MIT
-// Description : basic stack using static array
+// Description : basic queue using static array
 //============================================================================
 
 #include <iostream>
@@ -28,18 +28,19 @@ public:
 	}
 
 	bool isFull() {
-		return rear == 5;
+		return rear == 4;
 	}
 
 	void enqueue(int value) {
 		if (isFull()) {
-			cout << "Queue overflow\n";
+			cout << "Queue is Full\n";
 			return;
 		}
 		if (isEmpty()) {
-			rear = front = 0;
+			front = 0;
 		}
-		arr[rear++] = value;
+		rear++;
+		arr[rear] = value;
 	}
 
 	int dequeue() {
@@ -47,19 +48,22 @@ public:
 			cout << "Queue underflow\n";
 			return INT_MIN;
 		}
-		int value = arr[front++];
+		int value = arr[front];
+		arr[front] = 0;
 		if (front == rear) {
 			front = rear = -1;
+		} else {
+			front++;
 		}
 		return value;
 	}
 
 	int count() {
-		return rear - front;
+		return isEmpty() ? 0 : rear - front + 1;
 	}
 
 	void display() {
-		for (int i = front; i < rear; i++) {
+		for (int i = 0; i < 5; i++) {
 			cout << arr[i] << "\n";
 		}
 	}
